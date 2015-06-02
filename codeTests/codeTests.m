@@ -51,6 +51,13 @@
                                            returningResponse:&response
                                                        error:&error];
     
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        if(error) {
+            XCTFail(@"Expectation Failed with error: %@", error);
+        }
+    }];
+
+    
     XCTAssert(YES, @"Pass");
 }
 
